@@ -5,8 +5,6 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
-import com.qualcomm.robotcore.hardware.Servo;
-import com.qualcomm.robotcore.hardware.ServoController;
 
 @TeleOp(name = "HolonomicDrive11 (Blocks to Java)")
 public class HolonomicDrive11_justDrive extends LinearOpMode {
@@ -15,8 +13,6 @@ public class HolonomicDrive11_justDrive extends LinearOpMode {
   private DcMotor backRight;
   private DcMotor frontLeft;
   private DcMotor backLeft;
-  private ServoController ControlHub_ServoController;
-  private Servo servo;
 
   public void runOpMode() {
     float horizontal;
@@ -29,8 +25,6 @@ public class HolonomicDrive11_justDrive extends LinearOpMode {
     backRight = hardwareMap.get(DcMotor.class, "backRight");
     frontLeft = hardwareMap.get(DcMotor.class, "frontLeft");
     backLeft = hardwareMap.get(DcMotor.class, "backLeft");
-    ControlHub_ServoController = hardwareMap.get(ServoController.class, "Control Hub");
-    servo = hardwareMap.get(Servo.class, "servo");
 
     // Put initialization blocks here.
     telemetry.addData("kkey", 1234);
@@ -50,14 +44,7 @@ public class HolonomicDrive11_justDrive extends LinearOpMode {
         backRight.setPower(-pivot + vertical + horizontal);
         frontLeft.setPower(pivot + vertical + horizontal);
         backLeft.setPower(pivot + (vertical - horizontal));
-        telemetry.addData("key", 123);
-        
-        if(gamepad1.a){
-          servo.setPosition(1);
-        }
-        else if(gamepad1.b){
-          servo.setPosition(0);
-        }
+        telemetry.addData("key", 123);        
       }
     }
   }
