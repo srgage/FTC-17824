@@ -6,5 +6,5 @@ Here are the useful links:
 -  https://ftc-docs.firstinspires.org/en/latest/index.html
 -  https://www.youtube.com/watch?v=PJjFdsnw0uY
 -  https://ftctechnh.github.io/ftc_app/doc/javadoc/com/qualcomm/robotcore/hardware/Gamepad.html
--  https://github.com/srgage/FTC-17824/documentation/onbot-java-guide.pdf
+-  https://github.com/srgage/FTC-17824/blob/main/documentation/onbot-java-guide.pdf
 -  Code: https://192.168.43.1:8080
