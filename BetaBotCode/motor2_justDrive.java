@@ -8,7 +8,7 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 
 @TeleOp(name = "JustDrive 2 Motor (Blocks to Java)")
 
-public class test_2motor extends LinearOpMode {
+public class motor2_justDrive extends LinearOpMode {
 
     // todo: write your code here
   private DcMotor right;
