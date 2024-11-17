@@ -1,0 +1,4 @@
+# Sarah Gage is the default approver for the main branch
+* @srgage
+# example for delegating approval to different user
+#/file_name/ @some-user-name @srgage
