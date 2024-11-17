@@ -1,6 +1,6 @@
 # FTC-17824
 
-This is the GitHub repo for FTC team 17824.
+This is the GitHub repo for FTC team 17824. It contains the code for the FTC and Beta competition robots.
 
 Here are the useful links:
 -  https://ftc-docs.firstinspires.org/en/latest/index.html
