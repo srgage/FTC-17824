@@ -6,8 +6,8 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
-@TeleOp(name = "HolonomicDrive11 (Blocks to Java)")
-public class HolonomicDrive11_justDrive extends LinearOpMode {
+@TeleOp(name = "Just Drive Holonomic (Blocks to Java)")
+public class HolonomicDrive11JustDrive extends LinearOpMode {
 
   private DcMotor frontRight;
   private DcMotor backRight;
