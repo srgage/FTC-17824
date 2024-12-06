@@ -67,7 +67,7 @@ public class Competition24_25 extends LinearOpMode {
         //Arm
         //Lift - Motor
         if !gamepad1.left_bumper && !gamepad1.right_bumper {
-          list.setPower(0);
+          lift.setPower(0);
         }
         else if gamepad1.left_bumper {
           //down
@@ -82,7 +82,7 @@ public class Competition24_25 extends LinearOpMode {
         }
 
         //Shoulder - Motor
-        shoulder.setPower((left_trigger - right_trigger) * shoulderPower);
+        shoulder.setPower((gamepad1.left_trigger - gamepad1.right_trigger) * shoulderPower);
 
         //Elbow - Motor
         //right arm out and left arm in
