@@ -6,7 +6,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.hardware.ServoController;
-import com.qualcomm.robotcore.hardware.hardwareMap;
+import com.qualcomm.robotcore.hardware.HardwareMap;
 
 
 @TeleOp(name = "FTC Competition (Blocks to Java)")
@@ -19,23 +19,23 @@ public class Competition24_25 extends LinearOpMode {
 
   //Arm
   private ServoController ControlHub_ServoController;
-  private Servo pincher;
+  //private Servo pincher;
   private Servo wrist;
   private DcMotor elbow;
-  private DcMotor lift
-  private DcMotor shoulder
+  //private DcMotor lift;
+  private DcMotor shoulder;
 
   public void runOpMode() {
     //Drive
     float horizontal;
     float vertical;
     float pivot;
-    double drivePower = 1;
+    double drivePower = 0.5;
 
     //Arm
-    double liftPower = 1;
-    double shoulderPower = 1;
-    double elbowPower = 1;
+    double liftPower = 0.5;
+    double shoulderPower = 0.5;
+    double elbowPower = 0.5;
 
     frontRight = hardwareMap.get(DcMotor.class, "frontRight");
     backRight = hardwareMap.get(DcMotor.class, "backRight");
@@ -66,14 +66,15 @@ public class Competition24_25 extends LinearOpMode {
         
         //Arm
         //Lift - Motor
-        if !gamepad1.left_bumper && !gamepad1.right_bumper {
+        
+        if (!gamepad1.left_bumper && !gamepad1.right_bumper) {
           lift.setPower(0);
         }
-        else if gamepad1.left_bumper {
+        else if (gamepad1.left_bumper) {
           //down
           lift.setPower(-liftPower);
         }
-        else if gamepad1.right_bumper {
+        else if (gamepad1.right_bumper) {
           //up
           lift.setPower(liftPower);
         }
@@ -86,13 +87,13 @@ public class Competition24_25 extends LinearOpMode {
 
         //Elbow - Motor
         //right arm out and left arm in
-        if !gamepad1.dpad_left && !gamepad1.dpad_right {
+        if (!gamepad1.dpad_left && !gamepad1.dpad_right) {
           elbow.setPower(0);
         }
-        else if gamepad1.dpad_left {
+        else if (gamepad1.dpad_left) {
           elbow.setPower(-elbowPower);
         }
-        else if gamepad1.dpad_right {
+        else if (gamepad1.dpad_right) {
           elbow.setPower(elbowPower);
         }
         else {
@@ -101,19 +102,20 @@ public class Competition24_25 extends LinearOpMode {
 
         //Wrist - Servo
         //Would like to test under one button with a wrist position variable
-        if gamepad1.a {
+        if (gamepad1.a) {
           wrist.setPosition(1);
         }
-        if gamepad1.x {
+        if (gamepad1.x) {
           wrist.setPosition(0);
         }
 
         //Pincher - Servo
         //Would like to test under one button with a pincher position variable
-        if gamepad1.y {
+        
+        if (gamepad1.y) {
           pincher.setPosition(1);
         }
-        if gamepad1.b {
+        if (gamepad1.b) {
           pincher.setPosition(0);
         }
         
