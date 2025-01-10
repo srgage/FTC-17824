@@ -122,7 +122,7 @@ public class Competition24_25 extends LinearOpMode {
           pincher.setPosition(1);
           pinchClose = true;
         }
-        if (gamepad1.b && pinchClose) {
+        if (gamepad1.y && pinchClose) {
           pincher.setPosition(0);
           pinchClose = false;
         }
