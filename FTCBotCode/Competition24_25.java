@@ -19,10 +19,10 @@ public class Competition24_25 extends LinearOpMode {
 
   //Arm
   private ServoController ControlHub_ServoController;
-  //private Servo pincher;
+  private Servo pincher;
   private Servo wrist;
   private DcMotor elbow;
-  //private DcMotor lift;
+  private DcMotor lift;
   private DcMotor shoulder;
 
   public void runOpMode() {
@@ -61,12 +61,11 @@ public class Competition24_25 extends LinearOpMode {
         frontLeft.setPower((pivot + (vertical + horizontal)) * drivePower);
         backLeft.setPower((pivot + (vertical - horizontal)) * drivePower);
         telemetry.addData("key", 123);
-
-
         
         //Arm
-        //Lift - Motor
         
+        //Lift - Motor
+        //If the left bumper is pressed, the lift moves down. If the right bumper is pressed, the lift moves up.
         if (!gamepad1.left_bumper && !gamepad1.right_bumper) {
           lift.setPower(0);
         }
@@ -83,10 +82,11 @@ public class Competition24_25 extends LinearOpMode {
         }
 
         //Shoulder - Motor
+        //The left trigger moves the shoulder in, the right trigger moves the shoulder out
         shoulder.setPower((gamepad1.left_trigger - gamepad1.right_trigger) * shoulderPower);
 
         //Elbow - Motor
-        //right arm out and left arm in
+        //Right moves the arm out, left moves the arm in
         if (!gamepad1.dpad_left && !gamepad1.dpad_right) {
           elbow.setPower(0);
         }
@@ -102,6 +102,7 @@ public class Competition24_25 extends LinearOpMode {
 
         //Wrist - Servo
         //Would like to test under one button with a wrist position variable
+        //Button A moves the wrist up, button X moves the wrist down
         if (gamepad1.a) {
           wrist.setPosition(1);
         }
@@ -111,7 +112,7 @@ public class Competition24_25 extends LinearOpMode {
 
         //Pincher - Servo
         //Would like to test under one button with a pincher position variable
-        
+        //Button Y closes the pincher, button B opens the pincher
         if (gamepad1.y) {
           pincher.setPosition(1);
         }
