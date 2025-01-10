@@ -42,6 +42,9 @@ public class Competition24_25 extends LinearOpMode {
     frontLeft = hardwareMap.get(DcMotor.class, "frontLeft");
     backLeft = hardwareMap.get(DcMotor.class, "backLeft");
 
+    boolean wristUp = false;
+    boolean pinchClose = false;
+
     // Put initialization blocks here.
     telemetry.addData("kkey", 1234);
     telemetry.update();
@@ -102,22 +105,26 @@ public class Competition24_25 extends LinearOpMode {
 
         //Wrist - Servo
         //Would like to test under one button with a wrist position variable
-        //Button A moves the wrist up, button X moves the wrist down
-        if (gamepad1.a) {
+        //Button A moves the wrist (position 1 = up, position 0 = down)
+        if (gamepad1.a && !wristUp) {
           wrist.setPosition(1);
+          wristUp = true;
         }
-        if (gamepad1.x) {
+        if (gamepad1.a && wristUp) {
           wrist.setPosition(0);
+          wristUp = false;
         }
 
         //Pincher - Servo
         //Would like to test under one button with a pincher position variable
-        //Button Y closes the pincher, button B opens the pincher
-        if (gamepad1.y) {
+        //Button Y moves the pincher  (position 1 = close, position 0 = open)
+        if (gamepad1.y && !pinchClose) {
           pincher.setPosition(1);
+          pinchClose = true;
         }
-        if (gamepad1.b) {
+        if (gamepad1.b && pinchClose) {
           pincher.setPosition(0);
+          pinchClose = false;
         }
         
       }
