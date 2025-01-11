@@ -31,17 +31,23 @@ public class Competition24_25 extends LinearOpMode {
     float vertical;
     float pivot;
     double drivePower = 0.5;
-
     //Arm
     double liftPower = 0.5;
     double shoulderPower = 0.5;
     double elbowPower = 0.5;
 
+    //drive
     frontRight = hardwareMap.get(DcMotor.class, "frontRight");
     backRight = hardwareMap.get(DcMotor.class, "backRight");
     frontLeft = hardwareMap.get(DcMotor.class, "frontLeft");
     backLeft = hardwareMap.get(DcMotor.class, "backLeft");
-
+    //arm
+    pincher = hardwareMap.get(Servo.class, "pincher");
+    wrist = hardwareMap.get(Servo.class, "wrist");
+    elbow = hardwareMap.get(DcMotor.class, "elbow");
+    lift = hardwareMap.get(DcMotor.class, "lift");
+    shoulder = hardwareMap.get(DcMotor.class, "shoulder");
+    
     boolean wristUp = false;
     boolean pinchClose = false;
 
