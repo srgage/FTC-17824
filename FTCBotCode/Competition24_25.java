@@ -42,14 +42,12 @@ public class Competition24_25 extends LinearOpMode {
     frontLeft = hardwareMap.get(DcMotor.class, "frontLeft");
     backLeft = hardwareMap.get(DcMotor.class, "backLeft");
     //arm
+    ControlHub_ServoController = hardwareMap.get(ServoController.class, "Control Hub");
     pincher = hardwareMap.get(Servo.class, "pincher");
     wrist = hardwareMap.get(Servo.class, "wrist");
     elbow = hardwareMap.get(DcMotor.class, "elbow");
     lift = hardwareMap.get(DcMotor.class, "lift");
     shoulder = hardwareMap.get(DcMotor.class, "shoulder");
-    
-    boolean wristUp = false;
-    boolean pinchClose = false;
 
     // Put initialization blocks here.
     telemetry.addData("kkey", 1234);
@@ -75,10 +73,7 @@ public class Competition24_25 extends LinearOpMode {
         
         //Lift - Motor
         //If the left bumper is pressed, the lift moves down. If the right bumper is pressed, the lift moves up.
-        if (!gamepad1.left_bumper && !gamepad1.right_bumper) {
-          lift.setPower(0);
-        }
-        else if (gamepad1.left_bumper) {
+        if (gamepad1.left_bumper) {
           //down
           lift.setPower(-liftPower);
         }
@@ -96,10 +91,7 @@ public class Competition24_25 extends LinearOpMode {
 
         //Elbow - Motor
         //Right moves the arm out, left moves the arm in
-        if (!gamepad1.dpad_left && !gamepad1.dpad_right) {
-          elbow.setPower(0);
-        }
-        else if (gamepad1.dpad_left) {
+       if (gamepad1.dpad_left) {
           elbow.setPower(-elbowPower);
         }
         else if (gamepad1.dpad_right) {
@@ -112,27 +104,22 @@ public class Competition24_25 extends LinearOpMode {
         //Wrist - Servo
         //Would like to test under one button with a wrist position variable
         //Button A moves the wrist (position 1 = up, position 0 = down)
-        if (gamepad1.a && !wristUp) {
+        if (gamepad1.a) {
           wrist.setPosition(1);
-          wristUp = true;
         }
-        if (gamepad1.a && wristUp) {
+        else if (gamepad1.y) {
           wrist.setPosition(0);
-          wristUp = false;
         }
 
         //Pincher - Servo
         //Would like to test under one button with a pincher position variable
         //Button Y moves the pincher  (position 1 = close, position 0 = open)
-        if (gamepad1.y && !pinchClose) {
+        if (gamepad1.x) {
           pincher.setPosition(1);
-          pinchClose = true;
         }
-        if (gamepad1.y && pinchClose) {
+        else if (gamepad1.b) {
           pincher.setPosition(0);
-          pinchClose = false;
         }
-        
       }
     }
   }
