@@ -13,8 +13,10 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 public class motor2_justDrive extends LinearOpMode {
 
   //Drive
-  private DcMotor right;
-  private DcMotor left;
+  private DcMotor frontRight;
+  private DcMotor frontLeft;
+  private DcMotor backRight;
+  private DcMotor backLeft;
 
   //Arm
   private ServoController ControlHub_ServoController;
@@ -37,8 +39,10 @@ public class motor2_justDrive extends LinearOpMode {
     double elbowPower = 0.5;
 
     //Drvie
-    right = hardwareMap.get(DcMotor.class, "right");
-    left = hardwareMap.get(DcMotor.class, "left");
+    frontRight = hardwareMap.get(DcMotor.class, "frontRight");
+    frontLeft = hardwareMap.get(DcMotor.class, "frontLeft");
+    backRight = hardwareMap.get(DcMotor.class, "backRight");
+    backLeft = hardwareMap.get(DcMotor.class, "backLeft");
 
     //Arm
     ControlHub_ServoController = hardwareMap.get(ServoController.class, "Control Hub");
@@ -59,24 +63,34 @@ public class motor2_justDrive extends LinearOpMode {
       telemetry.update();
       while (opModeIsActive()) {
         if (gamepad1.dpad_up) {
-          right.setPower(-drivePower);
-          left.setPower(-drivePower);
+          frontRight.setPower(-drivePower);
+          frontLeft.setPower(-drivePower);
+          backRight.setPower(-drivePower);
+          backLeft.setPower(-drivePower);
         }
         if (gamepad1.dpad_down) {
-          right.setPower(drivePower);
-          left.setPower(drivePower);
+          frontRight.setPower(drivePower);
+          frontLeft.setPower(drivePower);
+          backRight.setPower(drivePower);
+          backLeft.setPower(drivePower);
         }
         if (gamepad1.dpad_right) {
-          right.setPower(0);
-          left.setPower(-drivePower);
+          frontRight.setPower(0);
+          frontLeft.setPower(-drivePower);
+          backRight.setPower(0);
+          backLeft.setPower(-drivePower);
         }
         if (gamepad1.dpad_left) {
-          right.setPower(-drivePower);
-          left.setPower(0);
+          frontRight.setPower(-drivePower);
+          frontLeft.setPower(0);
+          backRight.setPower(-drivePower);
+          backLeft.setPower(0);
         }
         if (gamepad1.right_stick_button) {
-          right.setPower(0);
-          left.setPower(0);
+          frontRight.setPower(0);
+          frontLeft.setPower(0);
+          backRight.setPower(0);
+          backLeft.setPower(0);
         }
 
         //Arm
