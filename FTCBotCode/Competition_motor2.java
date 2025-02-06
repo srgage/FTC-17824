@@ -8,7 +8,7 @@ import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.hardware.ServoController;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
-@TeleOp(name = "JustDrive 2 Motor (Blocks to Java)")
+@TeleOp(name = "Competition24_25 2 Motor (Blocks to Java)")
 
 public class motor2_justDrive extends LinearOpMode {
 
